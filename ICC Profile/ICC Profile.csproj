@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D736DCC-C0E5-4C7C-B371-FFE7D1BAA6BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ICC_Profile</RootNamespace>
+    <AssemblyName>ICC Profile</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.3.8.0\lib\net45\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net45\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net45\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataStruct\bACSProcessElement.cs" />
+    <Compile Include="DataStruct\CLUT.cs" />
+    <Compile Include="DataStruct\CLUT16.cs" />
+    <Compile Include="DataStruct\CLUT8.cs" />
+    <Compile Include="DataStruct\CLUTf32.cs" />
+    <Compile Include="DataStruct\CLUTProcessElement.cs" />
+    <Compile Include="DataStruct\CorruptProfileException.cs" />
+    <Compile Include="DataStruct\CurveSegment.cs" />
+    <Compile Include="DataStruct\CurveSetProcessElement.cs" />
+    <Compile Include="DataStruct\DeviceAttribute.cs" />
+    <Compile Include="DataStruct\eACSProcessElement.cs" />
+    <Compile Include="DataStruct\FormulaCurveElement.cs" />
+    <Compile Include="DataStruct\LocalizedString.cs" />
+    <Compile Include="DataStruct\LUT16.cs" />
+    <Compile Include="DataStruct\LUT8.cs" />
+    <Compile Include="DataStruct\MatrixProcessElement.cs" />
+    <Compile Include="DataStruct\MultiProcessElement.cs" />
+    <Compile Include="DataStruct\NamedColor.cs" />
+    <Compile Include="DataStruct\OneDimensionalCurve.cs" />
+    <Compile Include="DataStruct\ParametricCurve.cs" />
+    <Compile Include="DataStruct\PositionNumber.cs" />
+    <Compile Include="DataStruct\ProfileDescription.cs" />
+    <Compile Include="DataStruct\ProfileFlag.cs" />
+    <Compile Include="DataStruct\ResponseCurve.cs" />
+    <Compile Include="DataStruct\SampledCurveElement.cs" />
+    <Compile Include="DataStruct\VersionNumber.cs" />
+    <Compile Include="DataStruct\XYZNumber.cs" />
+    <Compile Include="EnumConst.cs" />
+    <Compile Include="ICC Tags\ChromaticityTag.cs" />
+    <Compile Include="ICC Tags\ColorantOrderTag.cs" />
+    <Compile Include="ICC Tags\ColorantTableTag.cs" />
+    <Compile Include="ICC Tags\CurveTag.cs" />
+    <Compile Include="ICC Tags\DataTag.cs" />
+    <Compile Include="ICC Tags\DateTimeTag.cs" />
+    <Compile Include="ICC Tags\Lut16Tag.cs" />
+    <Compile Include="ICC Tags\Lut8Tag.cs" />
+    <Compile Include="ICC Tags\LutAToBTag.cs" />
+    <Compile Include="ICC Tags\LutBToATag.cs" />
+    <Compile Include="ICC Tags\MeasurementTag.cs" />
+    <Compile Include="ICC Tags\MultiLocalizedUnicodeTag.cs" />
+    <Compile Include="ICC Tags\MultiProcessElementsTag.cs" />
+    <Compile Include="ICC Tags\NamedColor2Tag.cs" />
+    <Compile Include="ICC Tags\ParametricCurveTag.cs" />
+    <Compile Include="ICC Tags\ProfileSequenceDescTag.cs" />
+    <Compile Include="ICC Tags\ProfileSequenceIdentifierTag.cs" />
+    <Compile Include="ICC Tags\ResponseCurveSet16Tag.cs" />
+    <Compile Include="ICC Tags\s15Fixed16ArrayTag.cs" />
+    <Compile Include="ICC Tags\SignatureTag.cs" />
+    <Compile Include="ICC Tags\TextTag.cs" />
+    <Compile Include="ICC Tags\u16Fixed16ArrayTag.cs" />
+    <Compile Include="ICC Tags\uInt16ArrayTag.cs" />
+    <Compile Include="ICC Tags\uInt32ArrayTag.cs" />
+    <Compile Include="ICC Tags\uInt64ArrayTag.cs" />
+    <Compile Include="ICC Tags\uInt8ArrayTag.cs" />
+    <Compile Include="ICC Tags\ViewingConditionTag.cs" />
+    <Compile Include="ICC Tags\XYZTag.cs" />
+    <Compile Include="ICCTagData.cs" />
+    <Compile Include="ICCHeader.cs" />
+    <Compile Include="MathsProcess.cs" />
+    <Compile Include="Profile.cs" />
+    <Compile Include="HighEndianReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ICCTagTable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.0\build\Accord.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

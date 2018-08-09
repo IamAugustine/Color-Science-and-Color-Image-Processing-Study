@@ -1,0 +1,59 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColorImageProcessing"
+        xmlns:Custom="http://schemas.devzest.com/presentation/docking" x:Class="ColorImageProcessing.MainWindow"
+        mc:Ignorable="d"
+        Title="Color Image Processing" Height="800" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="684*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+
+        <Custom:DockControl x:Name="DockControlHost" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="2" VerticalAlignment="Stretch"  />
+        <Menu x:Name="Topmenu" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
+            <MenuItem Header="File">
+                <MenuItem x:Name="menu_OpenImage"  Header="Open" HorizontalAlignment="Left" Width="140" Click="menu_OpenImage_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Icon/open icon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name ="Menu_SaveImage"  Header="Save" HorizontalAlignment="Left" Width="140">
+                    <MenuItem.Icon>
+                        <Image Source="Icon/save icon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name ="Menu_SaveAs"  Header="Save as" HorizontalAlignment="Left" Width="140"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="140"/>
+                <MenuItem x:Name="Menu_Close" Header="Quit" HorizontalAlignment="Left" Width="140">
+                    <MenuItem.Icon>
+                        <Image Source="Icon/exit icon.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem x:Name="Menu_ImageInfo" Header="Image information" HorizontalAlignment="Left" Width="140" Click="Menu_ImageInfo_Click"/>
+            </MenuItem>
+            <MenuItem Header="Filter">
+                <MenuItem Header="Color Space Conversion" HorizontalAlignment="Left" Width="140">
+                    <MenuItem x:Name="Menu_Color_GrayScale" Header="Gray Scale" HorizontalAlignment="Left" Width="140"/>
+                    <MenuItem x:Name="Menu_Color_YCbCr" Header="YCbCr" HorizontalAlignment="Left" Width="140"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="ICC">
+                <MenuItem x:Name="Menu_ICCOpen" Header="Open" HorizontalAlignment="Left" Width="140" Click="Menu_ICCOpen_Click"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar HorizontalAlignment="Stretch"  Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" />
+
+    </Grid>
+</Window>
