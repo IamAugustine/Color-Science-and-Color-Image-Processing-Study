@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ColorLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,21 @@ namespace ChormaticSpace
 {
     public class ChormaticAdaption
     {
+        public static void GetCATMatrixWithDefinedIlluminant()
+        {
 
+        }
         public static double[] CATTransform(double[] inputValue, double[] originWhitePoint, double[] targetWhitePoint, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.VonKries)
         {
             double[] adaptedValue = null;
             GetMatrix(method, ref Ma, ref MaPrime);
-
+            
+            return adaptedValue;
+        }
+        public static double[] CATTransform(double[] inputValue, Illuminant illumSource, Illuminant illumDest, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.VonKries)
+        {
+            double[] adaptedValue = null;
+            GetMatrix(method, ref Ma, ref MaPrime);
             return adaptedValue;
         }
         private static double[,] Ma;
@@ -39,6 +49,15 @@ namespace ChormaticSpace
                                             { 0.0, 1.0, 0.0 }, 
                                             { 0.0, 0.0, 1.0 } };
                     break;
+                case ChromaticAdaptionMethod.VonKries:
+                    ma = new double[3,3] { { 0.40024, 0.7076, -0.08081 },
+                                           { -0.2263, 1.16532, 0.0457 }, 
+                                           { 0.0, 0.0, 0.91822 } };
+                    map = new double[,]{ { 1.8599364, -1.1293816, 0.2198974 }, 
+                                         { 0.3611914, 0.6388125, -0.0000064 }, 
+                                         { 0.0, 0.0, 1.0890636 } };
+                    break;
+
             }
         }
 

@@ -44,9 +44,11 @@
                 <MenuItem x:Name="Menu_ImageInfo" Header="Image information" HorizontalAlignment="Left" Width="140" Click="Menu_ImageInfo_Click"/>
             </MenuItem>
             <MenuItem Header="Filter">
-                <MenuItem Header="Color Space Conversion" HorizontalAlignment="Left" Width="140">
+                <MenuItem Header="Color Space" HorizontalAlignment="Left" Width="160" Click="MenuItem_Click" >
                     <MenuItem x:Name="Menu_Color_GrayScale" Header="Gray Scale" HorizontalAlignment="Left" Width="140"/>
                     <MenuItem x:Name="Menu_Color_YCbCr" Header="YCbCr" HorizontalAlignment="Left" Width="140"/>
+                </MenuItem>
+                <MenuItem Name="MenuItem_CAT" Header="CAT" HorizontalAlignment="Left" Width="160" Click="MenuItem_CAT_Click"  >
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="ICC">

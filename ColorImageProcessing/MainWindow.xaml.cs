@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ColorImageProcessing.Entities;
 using ColorImageProcessing.ToolBar;
+using ColorImageProcessing.View.Filter;
 using DevZest.Windows.Docking;
 using ICC_Profile;
 using Microsoft.Win32;
@@ -70,6 +71,17 @@ namespace ColorImageProcessing
                 profile.Read(openFileDialog.FileName);
                 MessageBox.Show(profile.Header.ProfileSize.ToString());
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_CAT_Click(object sender, RoutedEventArgs e)
+        {
+            CATSettingWindow catSettingWin = new CATSettingWindow();
+            catSettingWin.Show();
         }
     }
 }

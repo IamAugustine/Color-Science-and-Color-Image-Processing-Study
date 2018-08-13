@@ -67,6 +67,9 @@
     </ApplicationDefinition>
     <Compile Include="Core\ImageHelper.cs" />
     <Compile Include="Entities\Image\ImageProperty.cs" />
+    <Compile Include="View\Filter\CATSettingWindow.xaml.cs">
+      <DependentUpon>CATSettingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ICC\ProfilerInspector.xaml.cs">
       <DependentUpon>ProfilerInspector.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
     <Compile Include="ToolBar\ToolbarContainer.xaml.cs">
       <DependentUpon>ToolbarContainer.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Filter\CATSettingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ICC\ProfilerInspector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +150,10 @@
     <Resource Include="Icon\imageIcon.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ColorSpace\ColorLib.csproj">
+      <Project>{035efd12-c8ab-4413-a534-2a64b3dddb04}</Project>
+      <Name>ColorLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ICC Profile\ICC Profile.csproj">
       <Project>{2d736dcc-c0e5-4c7c-b371-ffe7d1baa6bc}</Project>
       <Name>ICC Profile</Name>

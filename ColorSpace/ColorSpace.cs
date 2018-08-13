@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ColorLib.Illuminant;
 
 namespace ColorLib
 {
@@ -38,6 +39,10 @@ namespace ColorLib
             Z = z;
             ChrmComponent = new[] { x, y, z };
         }
+        public CIEXYZ()
+        {
+            ChrmComponent = new double[3];
+        }
         //public static CIELAB ConvertToCIELAB(Illuminant illuminant)
         //{
         //    return ConvertToCIELAB(this, illuminant);
@@ -47,7 +52,7 @@ namespace ColorLib
         //    double[] lab = 
         //}
 
-        
+
     }
     public class CIELAB : ColorSpace
     {
