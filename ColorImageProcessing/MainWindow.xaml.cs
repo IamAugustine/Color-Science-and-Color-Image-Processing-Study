@@ -18,6 +18,9 @@ using ColorImageProcessing.View.Filter;
 using DevZest.Windows.Docking;
 using ICC_Profile;
 using Microsoft.Win32;
+using ColorImageProcessing.ImageDoc;
+using ColorImageProcessing.Entities.Simple_color_processing;
+using ColorImageProcessing.Core;
 
 namespace ColorImageProcessing
 {
@@ -44,7 +47,7 @@ namespace ColorImageProcessing
 
             if (ofd.ShowDialog() == true)
             {
-                ImageContent.ImageContent newDoc = new ImageContent.ImageContent
+                ImageDoc.ImageContent newDoc = new ImageContent
                 {
                     TabText = System.IO.Path.GetFileName(ofd.FileName)
                 };
@@ -56,7 +59,7 @@ namespace ColorImageProcessing
 
         private void Menu_ImageInfo_Click(object sender, RoutedEventArgs e)
         {
-            var activeDoc = DockControlHost.ActiveDocument as ImageContent.ImageContent;
+            var activeDoc = DockControlHost.ActiveDocument as ImageContent;
             ImageInfoPage infoPage = new ImageInfoPage();
             infoPage.Show(DockControlHost);
         }
@@ -82,6 +85,37 @@ namespace ColorImageProcessing
         {
             CATSettingWindow catSettingWin = new CATSettingWindow();
             catSettingWin.Show();
+        }
+
+        private void toolBar_undo_Click(object sender, RoutedEventArgs e)
+        {
+            if (DockControlHost.ActiveDocument is ImageContent)
+            {
+                var Doc = (ImageContent)DockControlHost.ActiveDocument;
+                Doc.Undo();
+            }
+        }
+
+        private void MenuItem_test_Click(object sender, RoutedEventArgs e)
+        {
+            RunProceesing(new ColorInverse());
+        }
+        private void RunProceesing(IImageProcess process)
+        {
+            if (DockControlHost.ActiveDocument is ImageContent)
+            {
+                var Doc = (ImageContent)DockControlHost.ActiveDocument;
+                Doc.RunProcessing(process);
+            }
+        }
+
+        private void toolBar_redo_Click(object sender, RoutedEventArgs e)
+        {
+            if (DockControlHost.ActiveDocument is ImageContent)
+            {
+                var Doc = (ImageContent)DockControlHost.ActiveDocument;
+                Doc.Redo();
+            }
         }
     }
 }

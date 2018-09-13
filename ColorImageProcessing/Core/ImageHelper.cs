@@ -24,7 +24,70 @@ namespace ColorImageProcessing.Core
                 return new Bitmap(bitmap);
             }
         }
-        public static BitmapImage LoadImageSourceFromFile(string fileName)
+        public static BitmapImage BitmapSourceToBitmapImage(BitmapSource src)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                BitmapEncoder encoder = new BmpBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(src));
+                encoder.Save(ms);
+                ms.Position = 0;
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = ms;
+                image.CacheOption = BitmapCacheOption.OnLoad;
+                image.EndInit();
+                image.Freeze();
+
+                return image;
+            }
+        }
+
+        //public static BitmapSource LoadBitmapSourceFromFile(string fileName)
+        //{
+        //    var loadedImagebitmap = new BitmapSource();
+        //    FileStream stream = null;
+
+        //    try
+        //    {
+        //        // read image to temporary memory stream
+        //        // (.NET locks any stream until bitmap is disposed,
+        //        // so that is why this work around is required to prevent file locking)
+        //        stream = File.OpenRead(fileName);
+        //        MemoryStream memoryStream = new MemoryStream();
+
+        //        byte[] buffer = new byte[10000];
+        //        while (true)
+        //        {
+        //            int read = stream.Read(buffer, 0, 10000);
+
+        //            if (read == 0)
+        //                break;
+
+        //            memoryStream.Write(buffer, 0, read);
+        //        }
+
+        //        stream.Seek(0, SeekOrigin.Begin);
+        //        loadedImagebitmap.BeginInit();
+        //        loadedImagebitmap.StreamSource = stream;
+        //        loadedImagebitmap.CacheOption = BitmapCacheOption.OnLoad;
+        //        loadedImagebitmap.EndInit();
+        //        loadedImagebitmap.Freeze();
+        //        //loadedImage = (BitmapSource)Bitmap.FromStream(memoryStream);
+        //    }
+        //    finally
+        //    {
+        //        if (stream != null)
+        //        {
+        //            stream.Close();
+        //            stream.Dispose();
+        //        }
+        //    }
+
+        //    return loadedImagebitmap;
+        //    ;
+        //}
+        public static BitmapImage LoadBitmapImageFromFile(string fileName)
         {
             var loadedImagebitmap = new BitmapImage();
             FileStream stream = null;

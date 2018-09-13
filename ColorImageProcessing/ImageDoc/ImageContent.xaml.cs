@@ -20,7 +20,7 @@ using ColorImageProcessing.Core;
 using DevZest.Windows.Docking;
 
 
-namespace ColorImageProcessing.ImageContent
+namespace ColorImageProcessing.ImageDoc
 {
     /// <summary>
     /// Interaction logic for ImageContent.xaml
@@ -34,7 +34,8 @@ namespace ColorImageProcessing.ImageContent
         }
 
         private BitmapImage _image;
-
+        private BitmapImage _undoImage;
+        private BitmapImage _currentImage;
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
@@ -52,13 +53,25 @@ namespace ColorImageProcessing.ImageContent
         }
         public void OpenFile(string fileName)
         {
-            Image = ImageHelper.LoadImageSourceFromFile(fileName);
-            
-            //_image = ImageHelper.BitmapImage2Bitmap(image);
-            imageContainer.Source = Image;
-            
-            
+            Image = ImageHelper.LoadBitmapImageFromFile(fileName);
+        }
+        public void Undo()
+        {
+            _currentImage = Image;
+            if (_undoImage != null) Image = _undoImage;
 
+            
+        }
+        public void Redo()
+        {
+            _undoImage = Image;
+            if (_currentImage != null) Image = _currentImage;
+        }
+        public void RunProcessing(IImageProcess process)
+        {
+            _undoImage = Image.Clone();
+           BitmapImage newImage = process.Apply(Image);
+            Image = newImage;
         }
 
     }

@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
 
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="684*"/>
             <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
@@ -50,12 +50,26 @@
                 </MenuItem>
                 <MenuItem Name="MenuItem_CAT" Header="CAT" HorizontalAlignment="Left" Width="160" Click="MenuItem_CAT_Click"  >
                 </MenuItem>
+                <MenuItem Name="MenuItem_test" Header="Test" HorizontalAlignment="Left" Height="18" Width="160" Click="MenuItem_test_Click"/>
+
             </MenuItem>
             <MenuItem Header="ICC">
                 <MenuItem x:Name="Menu_ICCOpen" Header="Open" HorizontalAlignment="Left" Width="140" Click="Menu_ICCOpen_Click"/>
             </MenuItem>
         </Menu>
         <StatusBar HorizontalAlignment="Stretch"  Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" />
+        <ToolBar Name="toolBar" HorizontalAlignment="Left" Height="30" Grid.Row="1" VerticalAlignment="Center" Width="125">
+            <Button Name="toolBar_undo" Height="30" Width="30" Click="toolBar_undo_Click">
+                <StackPanel>
+                    <Image Source="Icons/Undo-icon.png" />
+                </StackPanel>
+            </Button>
+            <Button Name="toolBar_redo" Height="30" Width="30" Click="toolBar_redo_Click">
+                <StackPanel>
+                    <Image Source="Icons/redo-icon.png" />
+                </StackPanel>
+            </Button>
+        </ToolBar>
 
     </Grid>
 </Window>

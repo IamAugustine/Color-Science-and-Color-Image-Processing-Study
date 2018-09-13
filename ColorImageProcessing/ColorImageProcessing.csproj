@@ -40,6 +40,15 @@
     <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>..\packages\Accord.3.8.0\lib\net45\Accord.dll</HintPath>
     </Reference>
+    <Reference Include="Accord.Math, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net45\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net45\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Statistics.3.8.0\lib\net45\Accord.Statistics.dll</HintPath>
+    </Reference>
     <Reference Include="DevZest.WpfDocking, Version=2.5.0.0, Culture=neutral, PublicKeyToken=861fc077c3dc39c3, processorArchitecture=MSIL">
       <HintPath>..\packages\DevZest.WpfDocking.3.0.0\lib\net35-Client\DevZest.WpfDocking.dll</HintPath>
       <Private>True</Private>
@@ -65,8 +74,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\GlobalVaribles.cs" />
+    <Compile Include="Core\IImageProcess.cs" />
     <Compile Include="Core\ImageHelper.cs" />
+    <Compile Include="Entities\Adaption\ChromaticAdaption.cs" />
     <Compile Include="Entities\Image\ImageProperty.cs" />
+    <Compile Include="Entities\Simple color processing\BasicProcess.cs" />
     <Compile Include="View\Filter\CATSettingWindow.xaml.cs">
       <DependentUpon>CATSettingWindow.xaml</DependentUpon>
     </Compile>
@@ -91,7 +104,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ImageContent\ImageContent.xaml">
+    <Page Include="ImageDoc\ImageContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,7 +116,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ImageContent\ImageContent.xaml.cs">
+    <Compile Include="ImageDoc\ImageContent.xaml.cs">
       <DependentUpon>ImageContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -166,10 +179,13 @@
     <Resource Include="Icon\exit icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\Adaption\" />
     <Folder Include="Entities\Color Space Conversion\" />
     <Folder Include="Entities\LocalToneMapping\" />
     <Folder Include="Entities\WhiteBalance\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\Redo-icon.png" />
+    <Resource Include="Icons\Undo-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />

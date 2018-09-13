@@ -4,31 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Accord.Math;
 namespace ChormaticSpace
 {
     public class ChormaticAdaption
     {
-        public static void GetCATMatrixWithDefinedIlluminant()
+        public static void GetCATMatrix(Illuminant source, Illuminant dest, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.VonKries)
         {
-
-        }
-        public static double[] CATTransform(double[] inputValue, double[] originWhitePoint, double[] targetWhitePoint, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.VonKries)
-        {
-            double[] adaptedValue = null;
             GetMatrix(method, ref Ma, ref MaPrime);
+            double[] prb_source = Matrix.Dot(Ma, source.GetXYZ());
+            double[] prb_dest = Matrix.Dot(Ma, dest.GetXYZ());
+            double[,] prb = Matrix.Diagonal(3, Elementwise.Divide(prb_dest, prb_source));
+            M = Matrix.Dot(Matrix.Dot(MaPrime, prb),Ma);
             
-            return adaptedValue;
         }
-        public static double[] CATTransform(double[] inputValue, Illuminant illumSource, Illuminant illumDest, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.VonKries)
-        {
-            double[] adaptedValue = null;
-            GetMatrix(method, ref Ma, ref MaPrime);
-            return adaptedValue;
-        }
+        public static double[] CATTransform<T>(T[] inputValue) => Matrix.Dot(M, inputValue.Convert(x => (double)((object)x)));
         private static double[,] Ma;
         private static double[,] MaPrime;
-
+        private static double[,] M;
         static void GetMatrix(ChromaticAdaptionMethod method, ref double[,] ma, ref double[,] map)
         {
             switch (method)

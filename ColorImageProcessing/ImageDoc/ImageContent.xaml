@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dz="http://schemas.devzest.com/presentation/docking"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-    x:Class= "ColorImageProcessing.ImageContent.ImageContent"
+    x:Class= "ColorImageProcessing.ImageDoc.ImageContent"
     Icon="/Icon/imageIcon.png"
     DefaultDockPosition="Document"
     Style="{DynamicResource {x:Type dz:DockItem}}"
@@ -14,11 +14,22 @@
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <StatusBar Height="23" VerticalAlignment="Bottom" Grid.Row="1">
-            <StatusBarItem Content="{Binding Image.Format}" Height="23" VerticalAlignment="Center">
-            </StatusBarItem>
-            <Separator Height="13" Margin="3" Width="2" HorizontalAlignment="Left"/>
+            <Grid Height="23" VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="400">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="270*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--<Separator Height="13" Margin="3" Width="2" HorizontalAlignment="Left"/>-->
+            </Grid>
+
         </StatusBar>
-        <Image Name="imageContainer" Margin="3"/>
+        <Image Name="imageContainer" Margin="3" Source="{Binding Image}"/>
     </Grid>
 
 </dz:DockItem>
