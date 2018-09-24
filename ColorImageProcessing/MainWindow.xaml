@@ -32,7 +32,7 @@
                         <Image Source="Icon/save icon.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name ="Menu_SaveAs"  Header="Save as" HorizontalAlignment="Left" Width="140"/>
+                <MenuItem x:Name ="Menu_SaveAs"  Header="Save as" HorizontalAlignment="Left" Click="Menu_SaveAs_Click" />
                 <Separator HorizontalAlignment="Left" Height="1" Width="140"/>
                 <MenuItem x:Name="Menu_Close" Header="Quit" HorizontalAlignment="Left" Width="140">
                     <MenuItem.Icon>
@@ -41,20 +41,30 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="View">
-                <MenuItem x:Name="Menu_ImageInfo" Header="Image information" HorizontalAlignment="Left" Width="140" Click="Menu_ImageInfo_Click"/>
+                <MenuItem x:Name="Menu_ImageInfo" Header="Image information" HorizontalAlignment="Left" Click="Menu_ImageInfo_Click"/>
             </MenuItem>
             <MenuItem Header="Filter">
                 <MenuItem Header="Color Space" HorizontalAlignment="Left" Width="160" Click="MenuItem_Click" >
                     <MenuItem x:Name="Menu_Color_GrayScale" Header="Gray Scale" HorizontalAlignment="Left" Width="140"/>
                     <MenuItem x:Name="Menu_Color_YCbCr" Header="YCbCr" HorizontalAlignment="Left" Width="140"/>
                 </MenuItem>
-                <MenuItem Name="MenuItem_CAT" Header="CAT" HorizontalAlignment="Left" Width="160" Click="MenuItem_CAT_Click"  >
+               
+                <MenuItem Name="MenuItem_Simple" Header ="Simple" Height="18" HorizontalAlignment="Left" Width="160">
+                    <MenuItem Name="MenuItem_Inverse" Header="Inverse Color" HorizontalAlignment="Left" Height="18" Width="139.2" Click="MenuItem_Inverse_Click"/>
+               
                 </MenuItem>
-                <MenuItem Name="MenuItem_test" Header="Test" HorizontalAlignment="Left" Height="18" Width="160" Click="MenuItem_test_Click"/>
+                <MenuItem Header="Contrast" HorizontalAlignment="Left" Height="18" Width="160">
+                    <MenuItem Name="MenuItem_HistEqlz" Header="Histogram Equalization" Height="18" HorizontalAlignment="Left" Click="MenuItem_HistEqlz_Click"/>
+                </MenuItem>
 
             </MenuItem>
-            <MenuItem Header="ICC">
-                <MenuItem x:Name="Menu_ICCOpen" Header="Open" HorizontalAlignment="Left" Width="140" Click="Menu_ICCOpen_Click"/>
+
+            <MenuItem Header="Color" Height="18
+                      " Width="100">
+                <MenuItem Header="ICC">
+                    <MenuItem x:Name="Menu_ICCOpen" Header="Open" HorizontalAlignment="Left" Width="140" Click="Menu_ICCOpen_Click"/>
+                </MenuItem>
+                <MenuItem Name ="MenuItem_CAT" Header="CAT" HorizontalAlignment="Left" Height="18" Width="140" Click="MenuItem_CAT_Click" />
             </MenuItem>
         </Menu>
         <StatusBar HorizontalAlignment="Stretch"  Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" />

@@ -98,7 +98,7 @@ namespace ColorImageProcessing
 
         private void MenuItem_test_Click(object sender, RoutedEventArgs e)
         {
-            RunProceesing(new ColorInverse());
+            
         }
         private void RunProceesing(IImageProcess process)
         {
@@ -115,6 +115,40 @@ namespace ColorImageProcessing
             {
                 var Doc = (ImageContent)DockControlHost.ActiveDocument;
                 Doc.Redo();
+            }
+        }
+
+        private void MenuItem_Inverse_Click(object sender, RoutedEventArgs e)
+        {
+            RunProceesing(new ColorInverse());
+        }
+
+        private void MenuItem_HistEqlz_Click(object sender, RoutedEventArgs e)
+        {
+            RunProceesing(new HistogramEqualization());
+        }
+
+        private void Menu_SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            SaveAsImage();
+        }
+
+        private void SaveAsImage()
+        {
+            if (DockControlHost.ActiveDocument is ImageContent)
+            {
+                var Doc = (ImageContent)DockControlHost.ActiveDocument;
+                SaveFileDialog sfdiag = new SaveFileDialog()
+                {
+                    Filter =
+                    @"Image files(*.jpg, *.png, *.tif, *.bmp, *.gif) | *.jpg; *.png; *.tif; *.bmp; *.gif | JPG files(*.jpg) | *.jpg | PNG files(*.png) | *.png | TIF files(*.tif) | *.tif | BMP files(*.bmp) | *.bmp | GIF files(*.gif) | *.gif",
+                    Title = @"Save As",
+                };
+                if (sfdiag.ShowDialog() == true)
+                {
+                    string filename = sfdiag.FileName;
+
+                }
             }
         }
     }

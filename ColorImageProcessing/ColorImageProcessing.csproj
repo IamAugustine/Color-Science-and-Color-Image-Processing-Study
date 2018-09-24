@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,6 +78,7 @@
     <Compile Include="Core\GlobalVaribles.cs" />
     <Compile Include="Core\IImageProcess.cs" />
     <Compile Include="Core\ImageHelper.cs" />
+    <Compile Include="Core\IOHelper.cs" />
     <Compile Include="Entities\Adaption\ChromaticAdaption.cs" />
     <Compile Include="Entities\Image\ImageProperty.cs" />
     <Compile Include="Entities\Simple color processing\BasicProcess.cs" />

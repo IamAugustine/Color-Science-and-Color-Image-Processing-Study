@@ -5,8 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorImageProcessing.View.ICC"
         mc:Ignorable="d"
-        Title="ProfilerInspector" Height="300" Width="300">
+        Title="ProfilerInspector" Height="700" Width="800">
+    <Window.Resources>
+        <Style x:Key = "LabelTemplate" TargetType = "Label">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="500"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10" Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Size" Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelTemplate}"/>
+            <Label Content="CMM Type" Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelTemplate}"/>
+            <Label Content="Version" Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelTemplate}"/>
+            <Label Content="Device class" Grid.Row="3" Grid.Column="0" Style="{StaticResource LabelTemplate}"/>
+        </Grid>
+
     </Grid>
 </Window>
