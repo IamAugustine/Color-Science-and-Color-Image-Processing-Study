@@ -12,18 +12,26 @@ namespace ColorImageProcessing.Entities.Adaption
 {
     internal class ChromaticAdaption : IImageProcess
     {
-        public Illuminant SourceIlluminat;
-        public Illuminant DestIlluminant;
-        public ChromaticAdaptionMethod Method;
+        public static Illuminant SourceIlluminat;
+        public static Illuminant DestIlluminant;
+        public static ChromaticAdaptionMethod Method;
         public BitmapImage Apply(BitmapImage image)
         {
-            int bytePerPixel = image.Format.BitsPerPixel;
-            return null;
+            
+            int stride = image.Format.BitsPerPixel / 8 * image.PixelWidth;
+            byte[] imageData = new byte[image.PixelHeight * stride];
+            image.CopyPixels(imageData, stride, 0);
+            byte[] newImageData = new byte[imageData.Length];
+            var newImageSource = BitmapSource.Create(image.PixelWidth, image.PixelHeight, image.DpiX, image.DpiY, image.Format, image.Palette, newImageData, stride);
+
+            newImageSource.Freeze();//newImageSource.Freeze();
+            return ImageHelper.BitmapSourceToBitmapImage(newImageSource);
         }
 
         public double[][,] ApplyToArray(BitmapImage image)
         {
             throw new NotImplementedException();
         }
+        
     }
 }

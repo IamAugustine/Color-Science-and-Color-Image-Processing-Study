@@ -18,6 +18,8 @@ namespace ColorLib
         HSI,
         YCbCr,
         YUV,
+        AdobeRGB,
+        ProPhotoRGB,
 
     }
     public enum ColorDifferenceModel

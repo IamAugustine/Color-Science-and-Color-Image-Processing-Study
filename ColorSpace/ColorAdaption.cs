@@ -50,7 +50,30 @@ namespace ChormaticSpace
                                          { 0.3611914, 0.6388125, -0.0000064 }, 
                                          { 0.0, 0.0, 1.0890636 } };
                     break;
-
+                case ChromaticAdaptionMethod.CMCCAT2000:
+                    ma = new double[3, 3] { { 0.7982, 0.3389, -0.1371 },
+                                           {  -0.5918, 1.5512, 0.0406},
+                                           { 0.0008, 0.239, 0.9753 } };
+                    map = new double[,]{ { 1.076450, -0.237662, 0.161212 },
+                                         {0.410964, 0.554342, 0.034694 },
+                                         { -0.010954, -0.013389, 1.024343} };
+                    break;
+                case ChromaticAdaptionMethod.CAT02:
+                    ma = new double[3, 3] { { 0.7328, 0.4296, -0.1624 },
+                                           { -0.7036, 1.6975, 0.0061 },
+                                           { 0.0030, 0.0136, 0.9834 } }; 
+                    map = new double[,]{ { 1.096124, -0.278869, 0.182745 },
+                                         { 0.454369, 0.473533, 0.072098 },
+                                         { -0.009628, -0.005698, 1.015326 } };
+                    break;
+                case ChromaticAdaptionMethod.SharpCAT:
+                    ma = new double[3, 3] { { 1.2694, -0.0988, - 0.1706 },
+                                           { -0.8364, 1.8006, 0.0357},
+                                           { 0.0297, -0.0315, 1.0018 } };
+                    map = new double[,]{ { 0.8156,0.0472, 0.1372 },
+                                         { 0.3791,0.5769, 0.0440 },
+                                         { -0.0123, 0.0167, 0.9955 } };
+                    break;
             }
         }
 
@@ -59,6 +82,10 @@ namespace ChormaticSpace
     {
         XYZScaling,
         VonKries,
-        BradFord
+        BradFord,
+        CMCCAT2000,
+        CAT02,
+        SharpCAT
+
     }
 }

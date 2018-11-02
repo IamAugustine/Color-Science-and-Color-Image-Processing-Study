@@ -9,7 +9,7 @@ namespace ColorLib
 {
     public abstract class ColorSpace
     {
-        protected abstract ColorSpaceEnums SpaceName { set; get; }
+        protected abstract ColorSpaceEnums SpaceName {  get; }
         public double[] WhitePoint;
 
         protected ColorSpace()
@@ -27,9 +27,10 @@ namespace ColorLib
             return ChrmComponent.ToString();
         }
     }
+
     public class CIEXYZ : ColorSpace
     {
-        protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.CIEXYZ; set => SpaceName = value; }
+        protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.CIEXYZ;  }
         public double X, Y, Z;
         Illuminant _defaultIlluminant = DefaultIlluminant.D65;
         public CIEXYZ(double x, double y, double z)
@@ -56,7 +57,7 @@ namespace ColorLib
     }
     public class CIELAB : ColorSpace
     {
-        protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.CIELAB; set => SpaceName = value; }
+        protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.CIELAB; }
         public double L, A, B;
         private Illuminant WhitePoint;
         public CIELAB(double l, double a, double b, Illuminant whitePoint= null)
@@ -76,4 +77,33 @@ namespace ColorLib
             WhitePoint = whitePoint ?? DefaultIlluminant.D65;
         }
     }
+    public class RGB: ColorSpace
+    {
+        public Illuminant ReferenceIlluminant;
+        public IColorSpaceConverter ColorSpaceConverter;
+
+        protected override ColorSpaceEnums SpaceName => throw new NotImplementedException();
+    }
+    public class AdobeRGB : RGB
+    {
+        protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.AdobeRGB; }
+        public AdobeRGB()
+        {
+            ColorSpaceConverter = new AdobeRGBConverter();
+            ReferenceIlluminant = DefaultIlluminant.D65;
+        }
+
+    }
+   
+    public class sRGB : RGB
+    {
+        protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.sRGB; }
+        public sRGB()
+        {
+            ColorSpaceConverter = new AdobeRGBConverter();
+            ReferenceIlluminant = DefaultIlluminant.D65;
+        }
+    }
+
+
 }

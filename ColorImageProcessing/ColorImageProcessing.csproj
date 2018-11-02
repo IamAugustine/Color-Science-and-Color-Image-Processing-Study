@@ -80,8 +80,10 @@
     <Compile Include="Core\ImageHelper.cs" />
     <Compile Include="Core\IOHelper.cs" />
     <Compile Include="Entities\Adaption\ChromaticAdaption.cs" />
+    <Compile Include="Entities\Color Space Conversion\ColorSapceComversion.cs" />
     <Compile Include="Entities\Image\ImageProperty.cs" />
     <Compile Include="Entities\Simple color processing\BasicProcess.cs" />
+    <Compile Include="Entities\WhiteBalance\AutoWhiteBalance.cs" />
     <Compile Include="View\Filter\CATSettingWindow.xaml.cs">
       <DependentUpon>CATSettingWindow.xaml</DependentUpon>
     </Compile>
@@ -181,9 +183,7 @@
     <Resource Include="Icon\exit icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\Color Space Conversion\" />
     <Folder Include="Entities\LocalToneMapping\" />
-    <Folder Include="Entities\WhiteBalance\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\Redo-icon.png" />
