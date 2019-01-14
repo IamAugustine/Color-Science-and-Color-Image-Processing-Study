@@ -91,6 +91,63 @@ namespace ColorLib
             throw new NotImplementedException();
         }
     }
+    public class LinearRGBConverter : IColorSpaceConverter
+    {
+        public double[] ConvertToCMYK<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToHSI<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToLAB<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToLCHab<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToLCHuv<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToLinearRgb<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToLUV<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToSrgb<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToxyY<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToXYZ<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double[] ConvertToYCbCr<T>(T[] input)
+        {
+            throw new NotImplementedException();
+        }
+    }
     public class XYZConverter : IColorSpaceConverter
     {
         public Illuminant IlluminationSource;

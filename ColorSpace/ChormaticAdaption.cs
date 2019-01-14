@@ -9,7 +9,7 @@ namespace ChormaticSpace
 {
     public class ChormaticAdaption
     {
-        public static void GetCATMatrix(Illuminant source, Illuminant dest, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.VonKries)
+        public static void GetCATMatrix(Illuminant source, Illuminant dest, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.BradFord)
         {
             GetMatrix(method, ref Ma, ref MaPrime);
             double[] prb_source = Matrix.Dot(Ma, source.GetXYZ());
@@ -19,9 +19,35 @@ namespace ChormaticSpace
             
         }
         public static double[] CATTransform<T>(T[] inputValue) => Matrix.Dot(M, inputValue.Convert(x => (double)((object)x)));
+        public static double[] CATTransform<T>(T[] inputValue, Illuminant source, Illuminant dest, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.BradFord)
+        {
+            Initialize(source, dest, method);
+            return CATTransform(inputValue);
+        }
+        public static double[] CATTransform<T>(T[] inputValue, double[] source, double[] dest, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.BradFord)
+        {
+            Initialize(new Illuminant (source), new Illuminant(dest), method);
+            return CATTransform(inputValue);
+        }
+        public static void Initialize(Illuminant sourceIlluminant, Illuminant destIlluminant, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.BradFord)
+        {
+            GetCATMatrix(sourceIlluminant, destIlluminant, method);
+        }
+        public static void Initialize(KnownIlluminant sourceIlluminant, KnownIlluminant destIlluminant, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.BradFord)
+        {
+            Illuminant src = Illuminant.GetIlluminant(sourceIlluminant);
+            Illuminant dest = Illuminant.GetIlluminant(destIlluminant);
+            GetCATMatrix(src, dest, method);
+        }
+        public static double[] CATTansform<T>(T[] inputValue, KnownIlluminant sourceIlluminant, KnownIlluminant destIlluminant, ChromaticAdaptionMethod method = ChromaticAdaptionMethod.BradFord)
+        {
+            Initialize(sourceIlluminant, destIlluminant, method);
+            return CATTransform(inputValue);
+        }
         private static double[,] Ma;
         private static double[,] MaPrime;
         private static double[,] M;
+        private static ChromaticAdaptionMethod CATMathod;   
         static void GetMatrix(ChromaticAdaptionMethod method, ref double[,] ma, ref double[,] map)
         {
             switch (method)

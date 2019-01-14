@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorAdaption.cs" />
+    <Compile Include="ChormaticAdaption.cs" />
     <Compile Include="ColorSpace.cs" />
     <Compile Include="ColorSpaceConverter.cs" />
     <Compile Include="Enums.cs" />

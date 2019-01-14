@@ -40,33 +40,30 @@ namespace ColorLib
             Z = z;
             ChrmComponent = new[] { x, y, z };
         }
+        public CIEXYZ(double[] xyz)
+        {
+            X = xyz[0];
+            Y = xyz[1];
+            Z = xyz[2];
+            ChrmComponent = xyz;
+        }
         public CIEXYZ()
         {
             ChrmComponent = new double[3];
         }
-        //public static CIELAB ConvertToCIELAB(Illuminant illuminant)
-        //{
-        //    return ConvertToCIELAB(this, illuminant);
-        //}
-        //public static CIELAB ConvertToCIELAB(CIEXYZ xyz, Illuminant illuminant)
-        //{
-        //    double[] lab = 
-        //}
-
-
     }
     public class CIELAB : ColorSpace
     {
         protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.CIELAB; }
         public double L, A, B;
-        private Illuminant WhitePoint;
+        private Illuminant _whitePoint;
         public CIELAB(double l, double a, double b, Illuminant whitePoint= null)
         {
             L = l;
             A = a;
             B = b;
             ChrmComponent = new[] { l, a, b };
-            WhitePoint = whitePoint ?? DefaultIlluminant.D65;
+            _whitePoint = whitePoint ?? DefaultIlluminant.D65;
         }
         public CIELAB(double[] lab,  Illuminant whitePoint=null)
         {
@@ -74,7 +71,7 @@ namespace ColorLib
             A = lab[1];
             B = lab[2];
             ChrmComponent = lab;
-            WhitePoint = whitePoint ?? DefaultIlluminant.D65;
+            _whitePoint = whitePoint ?? DefaultIlluminant.D65;
         }
     }
     public class RGB: ColorSpace
@@ -100,7 +97,7 @@ namespace ColorLib
         protected override ColorSpaceEnums SpaceName { get => ColorSpaceEnums.sRGB; }
         public sRGB()
         {
-            ColorSpaceConverter = new AdobeRGBConverter();
+            ColorSpaceConverter = new sRgbConverter();
             ReferenceIlluminant = DefaultIlluminant.D65;
         }
     }

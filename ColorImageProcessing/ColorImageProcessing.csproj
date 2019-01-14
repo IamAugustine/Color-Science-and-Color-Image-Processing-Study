@@ -161,10 +161,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\open icon.png" />
+    <Resource Include="Icons\open icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\imageIcon.png" />
+    <Resource Include="Icons\imageIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ColorSpace\ColorLib.csproj">
@@ -177,10 +177,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\save icon.png" />
+    <Resource Include="Icons\save icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\exit icon.png" />
+    <Resource Include="Icons\exit icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\LocalToneMapping\" />

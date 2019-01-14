@@ -24,19 +24,19 @@
             <MenuItem Header="File">
                 <MenuItem x:Name="menu_OpenImage"  Header="Open" HorizontalAlignment="Left" Width="140" Click="menu_OpenImage_Click">
                     <MenuItem.Icon>
-                        <Image Source="Icon/open icon.png"/>
+                        <Image Source="Icons/open icon.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name ="Menu_SaveImage"  Header="Save" HorizontalAlignment="Left" Width="140">
                     <MenuItem.Icon>
-                        <Image Source="Icon/save icon.png"/>
+                        <Image Source="Icons/save icon.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name ="Menu_SaveAs"  Header="Save as" HorizontalAlignment="Left" Click="Menu_SaveAs_Click" />
                 <Separator HorizontalAlignment="Left" Height="1" Width="140"/>
                 <MenuItem x:Name="Menu_Close" Header="Quit" HorizontalAlignment="Left" Width="140">
                     <MenuItem.Icon>
-                        <Image Source="Icon/exit icon.png"></Image>
+                        <Image Source="Icons/exit icon.png"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
@@ -55,6 +55,12 @@
                 </MenuItem>
                 <MenuItem Header="Contrast" HorizontalAlignment="Left" Height="18" Width="160">
                     <MenuItem Name="MenuItem_HistEqlz" Header="Histogram Equalization" Height="18" HorizontalAlignment="Left" Click="MenuItem_HistEqlz_Click"/>
+                </MenuItem>
+                <MenuItem Header="White balance" HorizontalAlignment="Left" Height="18" Width="160">
+                    <MenuItem Header="Auto White balance" HorizontalAlignment="Left" Height="18" Width="190">
+                        <MenuItem Header="Grey world" HorizontalAlignment="Left" Height="18" Width="180"/>
+                        <MenuItem Header="Perfect reflector" HorizontalAlignment="Left" Height="18" Width="180"/>
+                    </MenuItem>
                 </MenuItem>
 
             </MenuItem>

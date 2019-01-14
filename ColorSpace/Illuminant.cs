@@ -11,6 +11,12 @@ namespace ColorLib
     public class Illuminant : INotifyPropertyChanged
     {
         public KnownIlluminant Name;
+        public Illuminant(double[] xyz)
+        {
+            XYZ = new CIEXYZ(xyz);
+        }
+        public Illuminant()
+        { }
         public double X { set { XYZ.X = value; NotifyPropertyChanged("X"); } get { return XYZ.X; } }
         public double Y { set { XYZ.Y = value; NotifyPropertyChanged("Y"); } get { return XYZ.Y; } }
         public double Z { set { XYZ.Z = value; NotifyPropertyChanged("Z"); } get { return XYZ.Z; } }
@@ -88,15 +94,4 @@ namespace ColorLib
         Custom
 
     }
-//A 	1.09850	1.00000	0.35585
-//B	    0.99072	1.00000	0.85223
-//C	    0.98074	1.00000	1.18232
-//D50	0.96422	1.00000	0.82521
-//D55	0.95682	1.00000	0.92149
-//D65	0.95047	1.00000	1.08883
-//D75	0.94972	1.00000	1.22638
-//E	    1.00000	1.00000	1.00000
-//F2	0.99186	1.00000	0.67393
-//F7	0.95041	1.00000	1.08747
-//F11	1.00962	1.00000	0.64350
 }

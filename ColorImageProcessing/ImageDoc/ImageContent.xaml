@@ -4,7 +4,7 @@
     xmlns:dz="http://schemas.devzest.com/presentation/docking"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
     x:Class= "ColorImageProcessing.ImageDoc.ImageContent"
-    Icon="/Icon/imageIcon.png"
+    Icon="/Icons/imageIcon.png"
     DefaultDockPosition="Document"
     Style="{DynamicResource {x:Type dz:DockItem}}"
     HideOnPerformClose="False" d:DesignWidth="400" d:DesignHeight="400">
