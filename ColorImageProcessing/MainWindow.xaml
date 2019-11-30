@@ -42,6 +42,7 @@
             </MenuItem>
             <MenuItem Header="View">
                 <MenuItem x:Name="Menu_ImageInfo" Header="Image information" HorizontalAlignment="Left" Click="Menu_ImageInfo_Click"/>
+                <MenuItem x:Name="Menu_ImageHistogram" Header="Histogram" Click="Menu_ImageHistogram_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Filter">
                 <MenuItem Header="Color Space" HorizontalAlignment="Left" Width="160" Click="MenuItem_Click" >

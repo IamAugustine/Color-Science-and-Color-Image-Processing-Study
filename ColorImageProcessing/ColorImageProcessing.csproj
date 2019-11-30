@@ -54,6 +54,9 @@
       <HintPath>..\packages\DevZest.WpfDocking.3.0.0\lib\net35-Client\DevZest.WpfDocking.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -80,15 +83,23 @@
     <Compile Include="Core\ImageHelper.cs" />
     <Compile Include="Core\IOHelper.cs" />
     <Compile Include="Entities\Adaption\ChromaticAdaption.cs" />
+    <Compile Include="Entities\Auto adjustment\AutoColor.cs" />
+    <Compile Include="Entities\Auto adjustment\AutoContrast.cs" />
+    <Compile Include="Entities\Auto adjustment\AutoTone.cs" />
     <Compile Include="Entities\Color Space Conversion\ColorSapceComversion.cs" />
+    <Compile Include="Entities\Histogram\HistogramEqualization.cs" />
     <Compile Include="Entities\Image\ImageProperty.cs" />
     <Compile Include="Entities\Simple color processing\BasicProcess.cs" />
+    <Compile Include="Entities\Histogram\Histogram.cs" />
     <Compile Include="Entities\WhiteBalance\AutoWhiteBalance.cs" />
     <Compile Include="View\Filter\CATSettingWindow.xaml.cs">
       <DependentUpon>CATSettingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ICC\ProfilerInspector.xaml.cs">
       <DependentUpon>ProfilerInspector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Info\HistogramViewPage.xaml.cs">
+      <DependentUpon>HistogramViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Info\ImageInfoPage.xaml.cs">
       <DependentUpon>ImageInfoPage.xaml</DependentUpon>
@@ -101,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ICC\ProfilerInspector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Info\HistogramViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,7 +198,9 @@
     <Resource Include="Icons\exit icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Entities\Filter\" />
     <Folder Include="Entities\LocalToneMapping\" />
+    <Folder Include="View\Chart\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\Redo-icon.png" />
