@@ -1,4 +1,5 @@
 ﻿using ColorImageProcessing.Core;
+using ColorLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,7 @@ namespace ColorImageProcessing.Entities.WhiteBalance
         public override byte[] WhiteBalance(byte[] imageData, List<object> param = null)
         {
             throw new NotImplementedException();
+            
         }
     }
 }
