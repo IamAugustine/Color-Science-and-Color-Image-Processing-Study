@@ -21,6 +21,7 @@ using Microsoft.Win32;
 using ColorImageProcessing.ImageDoc;
 using ColorImageProcessing.Entities.Simple_color_processing;
 using ColorImageProcessing.Core;
+using ColorImageProcessing.Entities.Histogram;
 
 namespace ColorImageProcessing
 {
@@ -34,7 +35,7 @@ namespace ColorImageProcessing
             InitializeComponent();
             
         }
-
+        private View.Info.HistogramViewPage histogramViewPage;
         private void menu_OpenImage_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog
@@ -149,6 +150,14 @@ namespace ColorImageProcessing
                     string filename = sfdiag.FileName;
 
                 }
+            }
+        }
+
+        private void Menu_ImageHistogram_Click(object sender, RoutedEventArgs e)
+        {
+            if (DockControlHost.ActiveDocument is ImageContent)
+            {
+                var Doc = (ImageContent)DockControlHost.ActiveDocument;
             }
         }
     }
